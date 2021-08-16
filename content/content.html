@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content</title>
+    <script src="res/jquery.min.js"></script>
+</head>
+<body>
+<style>
+@font-face {
+    font-family: ArialBold;
+    src: url(res/font/Arial_Rounded_Bold.ttf);
+}
+html, body {
+width: 100%; height: 100%;
+overflow: hidden;
+}
+body {
+margin: 0; color: white;
+background-color: #082fa4;
+font-family: ArialBold;
+user-select: none; /* supported by Chrome and Opera */
+-webkit-user-select: none; /* Safari */
+-khtml-user-select: none; /* Konqueror HTML */
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.top {
+width: 100vw; height: 10vh;
+display: flex; align-items: center; justify-content: space-between;
+}
+.top-img {
+width: 17vw; height: 17vw;
+transition: all 300ms ease;
+opacity: 0; transform: scale(1.2);
+} .top-img:active {
+transition: none !important; opacity: .6 !important;
+}
+.coins {
+display: flex; justify-content: space-around; align-items: center;
+transition: all 300ms ease;
+opacity: 0; transform: scale(1.2); visibility: hidden;
+}
+.coins-img {
+width: 7vw; height: 7vw; margin-right: 1vw;
+}
+#coins {
+font-size: 6vw;
+}
+
+.mid {
+width: 100%; height: 75vh;
+display: flex; flex-wrap: wrap;
+justify-content: center; align-content: space-around;
+}
+.mode_name {
+width: 100%; padding-left: 3vw;
+font-size: 6vw;
+transform: scale(1.2); opacity: 0;
+transition: all 300ms ease;
+}
+.main-ct {
+width: 90vw; min-height: 40vw; background-color: #e33966;
+border-radius: 10px; padding: 4vw;
+transition: all 300ms ease;
+opacity: 0; transform: scale(1.2);
+}
+.but {
+background-color: #f66838;
+}
+.main-txt {
+font-size: 7vw; text-align: center;
+}
+.ct-txt {
+width: 100%;
+font-size: 4.5vw;
+text-align: center;
+}
+
+.btm {
+width: 100vw; height: 15vh;
+display: flex; flex-wrap: wrap;
+transition: all 300ms ease;
+transform: scale(1.2); opacity: 0;
+}
+.yes_no-bg {
+width: 100%; height: 15vh;
+display: flex; flex-wrap: wrap;
+justify-content: space-around; align-items: center;
+transition: all 400ms ease;
+}
+.btn {
+width: 45vw; height: 11vh;
+background-color: #e10043;
+display: flex; justify-content: center; align-items: center;
+font-size: 7vw; border: solid 1vw white;
+} .btn:active {
+transition: none; opacity: .6;
+}
+
+.answer-bg {
+width: 100%; height: 15vh;
+display: flex; flex-wrap: wrap; opacity: 1;
+justify-content: space-around; align-items: center;
+transition: all 400ms ease;
+
+}
+.card1 {
+width: 55vw; height: 13vh;
+background-color: #e10043;
+display: flex; flex-wrap: wrap;
+justify-content: center; align-items: center;
+font-size: 7vw; border: solid 1vw white;
+}
+.card2 {
+width: 35vw; height: 13vh;
+background-color: #ad20d1;
+display: flex; justify-content: center; align-items: center;
+font-size: 7vw; border: solid 1vw white;
+} .card2:active {
+transition: none;
+opacity: .6;
+}
+.card-ti {
+width: 100%;
+text-align: center;
+}
+.card-txt {
+width: 100%; text-align: center;
+font-size: 4.5vw;
+}
+
+.next-img {
+width: 13vw; height: 13vw;
+}
+</style>
+<script>
+mode = localStorage.getItem("mode");
+lang = localStorage.getItem("lang");
+fileLoaded = false;
+let myScript = document.createElement("script");
+myScript.setAttribute("src", "res/var/"+mode+"/"+mode+"_"+lang+".js");
+document.body.appendChild(myScript);
+</script>
+
+<div class="top">
+    <img src="res/img/lang.webp" class="top-img lang_open">
+    <div class="coins"><img src="res/img/coins.webp" class="coins-img"><div id="coins">26</div></div>
+    <img src="res/img/list.webp" class="top-img mode_open">
+</div>
+
+<div class="mid">
+<div class="mode_name">Basic</div>
+<div class="main-ct what-if">
+<div class="main-txt what-if-txt">What if...</div>
+<div class="ct-txt what-if-ct"></div>
+</div>
+<div class="main-ct but">
+    <div class="main-txt but-txt">But...</div>
+    <div class="ct-txt but-ct"></div>
+</div>
+</div>
+
+<div class="btm">
+<div class="yes_no-bg">
+<div class="yes btn">Yes</div>
+<div class="no btn">No</div>
+</div>
+
+<div class="answer-bg">
+<div class="card1">
+<div class="card-ti"><span id="card-ti"></span>!</div>
+<div class="card-txt">
+    <span id="answered"></span>% <span id="card-txt1">answered like you</span><br/>
+    <span id="unanswered"></span>% <span id="card-txt2">answered</span><span id="not-click"></span>
+</div>
+</div>
+<div class="card2">
+    <img src="res/img/next.webp" class="next-img">
+</div>
+</div>
+</div>
+<script>
+setTimeout(() => {$(".top-img, .coins").css({transform:'scale(1)', opacity:'1'});}, 100);
+setTimeout(() => {$(".what-if").css({transform:'scale(1)', opacity:'1'});}, 200);
+setTimeout(() => {$(".but").css({transform:'scale(1)', opacity:'1'});}, 300);
+setTimeout(() => {$(".btm, .mode_name").css({transform:'scale(1)', opacity:'1'});}, 400);
+
+function Outro() {
+setTimeout(() => {$(".top-img, .coins").css({transform:'scale(1.2)', opacity:'0'});}, 100);
+setTimeout(() => {$(".main-ct").css({transform:'scale(1.2)', opacity:'0'});}, 200);
+setTimeout(() => {$(".btm, .mode_name").css({transform:'scale(1.2)', opacity:'0'});}, 300);
+}
+
+total = localStorage.getItem(mode+"_total");
+opened = localStorage.getItem(mode);
+$(".mode_name").html(mode);
+fileIntervel = setInterval(() => {
+if (fileLoaded) {
+    clearInterval(fileIntervel);
+    allFunction();}
+}, 400);
+
+if (localStorage.getItem("lang") == "hin") {
+$(".what-if-txt").html("...क्या हो अगर");
+$(".but-txt").html("लेकिन");
+$(".yes").html("हाँ");
+$(".no").html("ना");
+$(".card-txt").empty();
+$(".card-txt").append(`
+<span id="answered"></span>% आप की तरह उत्तर दिया<br/>
+<span id="unanswered"></span>% उत्तर <span id="not-click"></span> दिया 
+`);
+
+}
+
+if (localStorage.getItem("lang") == "mal") {
+$(".card1").css({fontSize:'4.5vw'});
+$(".card-txt").css({fontSize:'3vw'});
+$(".what-if-txt").html("...അങ്ങനെയെങ്കിൽ");
+$(".but-txt").html("പക്ഷേ");
+$(".yes").html("അതെ");
+$(".no").html("അല്ല");
+$(".card-txt").empty();
+$(".card-txt").append(`
+<span id="answered"></span>% നിങ്ങളെപ്പോലെ ഉത്തരം നൽകി.<br/>
+<span id="unanswered"></span>% <span id="not-click"></span> എന്ന് ഉത്തരം നൽകി
+`);
+
+}
+
+if (localStorage.getItem("lang") == "tam") {
+$(".card1").css({fontSize:'4.5vw'});
+$(".card-txt").css({fontSize:'3vw'});
+$(".what-if-txt").html("...அப்படிஎன்றால்");
+$(".but-txt").html("ஆனாலும்");
+$(".yes").html("ஆம்");
+$(".no").html("இல்லை");
+$(".card-txt").empty();
+$(".card-txt").append(`
+<span id="answered"></span>% உங்களைப் போல் பதிலளித்தார்.<br/>
+<span id="unanswered"></span>% <span id="not-click"></span> பதிலளித்தார்
+`);
+
+}
+
+t_a = localStorage.getItem("t_a"); //Total Answered
+a_y = localStorage.getItem("a_y"); //Answered Yes
+a_n = localStorage.getItem("a_n"); //Answered No
+a_ma = localStorage.getItem("a_ma"); //Answered Majority
+a_mi = localStorage.getItem("a_mi"); //Answered Minority
+
+function allFunction() {
+
+function appendAll() {
+$(".what-if-ct").html(window["w" + opened]);
+$(".but-ct").html(window["b" + opened]);
+}
+appendAll();
+
+Yes_eng = "Yes"; No_eng = "No";
+Yes_hin = "हाँ"; No_hin = "ना";
+Yes_tam = "ஆம்"; No_tam = "இல்லை";
+Yes_mal = "അതെ"; No_mal = "അല്ല";
+
+
+$(".yes").click(function() {
+click = window["Yes_" + lang]; notClick = window["No_" + lang];
+a_y++; localStorage.setItem("a_y", a_y);
+if (window["y" + opened] > window["n" + opened]) {
+a_ma++; localStorage.setItem("a_ma", a_ma);
+} else {
+a_mi++; localStorage.setItem("a_mi", a_mi);
+}
+});
+
+$(".no").click(function() {
+click = window["No_" + lang]; notClick = window["Yes_" + lang];
+a_n++; localStorage.setItem("a_n", a_n);
+if (window["n" + opened] > window["y" + opened]) {
+a_ma++; localStorage.setItem("a_ma", a_ma);
+} else {
+a_mi++; localStorage.setItem("a_mi", a_mi);
+}
+});
+
+$(".btn").click(function() {
+t_a++; localStorage.setItem("t_a", t_a);
+
+$("#card-ti").html(click);
+if (click == "Yes") {
+    $("#answered").html(window["y" + opened]);
+    $("#unanswered").html(window["n" + opened]);
+} else {
+    $("#answered").html(window["n" + opened]);
+    $("#unanswered").html(window["y" + opened]);
+}
+$("#not-click").html(notClick);
+
+if (opened <= localStorage.getItem(mode+"_total")) {
+    opened ++; localStorage.setItem(mode, opened);
+}
+
+$(".yes_no-bg").css({transform:'translateX(-100%)', opacity:'0'});
+$(".answer-bg").css({transform:'translateY(-100%)', opacity:'1'});
+});
+
+$(".card2").click(function() {
+if (opened <= localStorage.getItem(mode+"_total")) {
+    appendAll();
+    $(".yes_no-bg").css({transform:'translateX(0%)', opacity:'1'});
+    $(".answer-bg").css({transform:'translateY(100%)', opacity:'0'});
+} else {
+    window.history.back();
+}
+});
+
+$(".mode_open").click(function() {
+Outro();
+setTimeout(() => {window.history.back();}, 600);
+});
+$(".lang_open").click(function() {
+Outro();
+setTimeout(() => {window.history.go(-2);}, 600);
+});
+
+
+
+}//allFunction Closed
+</script>
+</body>
+</html>

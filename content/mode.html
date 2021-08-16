@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mode</title>
+    <script src="res/jquery.min.js"></script>
+<script>
+localStorage.setItem("Funny_total", 36); localStorage.setItem("Sex_total", 8);
+</script>
+</head>
+<body>
+<style>
+@font-face {
+    font-family: ArialBold;
+    src: url(res/font/Arial_Rounded_Bold.ttf);
+}
+html, body {
+width: 100%; height: 100%;
+overflow: hidden;
+}
+body {
+margin: 0; color: white;
+background-color: #082fa4;
+font-family: ArialBold;
+user-select: none; /* supported by Chrome and Opera */
+-webkit-user-select: none; /* Safari */
+-khtml-user-select: none; /* Konqueror HTML */
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.top {
+width: 100vw; height: 10vh;
+display: flex; align-items: center; justify-content: space-between;
+}
+.top-img {
+width: 17vw; height: 17vw;
+transition: all 300ms ease;
+opacity: 0; transform: scale(1.2);
+} .top-img:active {
+transition: none !important; opacity: .6 !important;
+}
+.coins {
+display: flex; justify-content: space-around; align-items: center;
+transition: all 300ms ease;
+opacity: 0; transform: scale(1.2); visibility: hidden;
+}
+.coins-img {
+width: 7vw; height: 7vw; margin-right: 1vw;
+}
+#coins {
+font-size: 6vw;
+}
+
+.mid {
+width: 100vw; height: 15vh;
+display: flex; flex-wrap: wrap;
+justify-content: space-around; align-items: center;
+transition: all 300ms ease;
+opacity: 0; transform: scale(1.2);
+}
+.mid-ct {
+width: 40vw; padding:1vh 0; text-align: center;
+border-radius: 14px; font-size: 6vw;
+border: solid .7vw white;
+}
+.stats {
+border-color: transparent;
+}
+
+.btm, .btm2 {
+width: 100vw; height: 75vh;
+/*overflow-y: scroll;*/
+display: flex; flex-wrap: wrap;
+justify-content: center; align-content: baseline;
+}
+.btm2 {
+background-color: #082fa4;
+overflow: hidden;
+transition: all 300ms ease;
+opacity: 0;
+}
+
+.ct {
+width: 80vw; height: 15vw;
+margin: 4vh 0;
+border: solid .5vw #2f57db;
+border-radius: 13px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+transform: scale(1.2); opacity: 0;
+transition: all 300ms ease;
+} .ct:active {
+transition: none !important; opacity: .6 !important;
+}
+
+.ct-txt {
+width: 50vw; height: 20vw;
+font-size: 5vw;
+display: flex; align-items: center;
+padding-left: 6vw;
+}
+.show-levels {
+margin-right: 4vw; font-size: 4vw;
+}
+.next-img {
+width: 5vw; height: 5vw;
+margin-right: 4vw;
+}
+</style>
+<div class="top">
+    <img src="res/img/back.webp" class="top-img back-img">
+    <div class="coins"><img src="res/img/coins.webp" class="coins-img"><div id="coins">26</div></div>
+    <img src="res/img/add.webp" class="top-img" style="visibility: hidden;">
+</div>
+<div class="mid">
+    <div class="mid-ct mode">Modes</div>
+    <div class="mid-ct stats">Stats</div>
+</div>
+<div class="btm">
+
+    <div class="ct ct1">
+        
+        <div class="ct-txt">Funny</div>
+        <div class="show-levels"><span id="Funny_levels"></span>/<span id="Funny_total">1</span></div>
+        <img src="res/img/next.webp" class="next-img">
+    </div>
+    <div class="ct ct2">
+        <div class="ct-txt">Sex</div>
+        <div class="show-levels"><span id="Sex_levels"></span>/<span id="Sex_total">1</span></div>
+        <img src="res/img/next.webp" class="next-img">
+    </div>
+
+</div>
+
+<style>
+.stats-bg {
+width: 90vw; padding: 6vh 0;
+border: solid 1vw #2f57db;
+border-radius: 10px;
+display: flex; flex-wrap: wrap;
+align-content: center; justify-content: center;
+transition: all 300ms ease;
+}
+.stats-ct {
+width: 85%;
+margin: 3vh 0;
+display: flex; justify-content: space-between;
+font-size: 5.5vw;
+}
+</style>
+<div class="btm2">
+<div class="stats-bg">
+    <div class="stats-ct stats-ct1">
+        <div class="stats-txt t-a">Total Answered</div><div class="total_answered">0</div>
+    </div>
+    <div class="stats-ct stats-ct1">
+        <div class="stats-txt a-y">Answered Yes</div><div class="answered_yes">0</div>
+    </div>
+    <div class="stats-ct stats-ct1">
+        <div class="stats-txt a-n">Answered No</div><div class="answered_no">0</div>
+    </div>
+    <div class="stats-ct stats-ct1">
+        <div class="stats-txt a-ma">Answered Majority</div><div class="answered_majority">0</div>
+    </div>
+    <div class="stats-ct stats-ct1">
+        <div class="stats-txt a-mi">Answered Minority</div><div class="answered_minority">0</div>
+    </div>
+
+</div>
+</div>
+
+<style>
+.mature-content-con {
+width: 100vw; height: 100vh;
+position: fixed; top: 0; left: 0;
+background-color: rgba(0, 0, 0, .5);
+display: none; justify-content: center; align-items: center;
+transition: all 400ms ease;
+}
+.m-c-ct {
+width: 85vw; padding: 3vh 4vw; border-radius: 10px;
+background-color: #082fa4;
+animation: m-c-ct 400ms ease 1;
+} @keyframes m-c-ct {
+    0% {transform: scale(1.2); opacity: 0;}
+    100% {transform: scale(1); opacity: 1;}
+}
+.m-c-ti {
+width: 100%; text-align: center;
+margin-bottom: 2vh;
+font-size: 7vw;
+}
+.m-c-des {
+width: 100%; text-align: center;
+margin-bottom: 2vh; font-size: 4vw;
+}
+.m-c-btn_bg {
+width: 100%;
+display: flex; justify-content: space-around;
+}
+.m-c-btn {
+padding: 4vw 6vw;
+border-radius: 10px;
+} .m-c-btn:active {
+opacity: .6;
+}
+.decline {
+background-color: #24ab1b;
+}
+.accept      {
+background-color: #b71f1f;
+}
+</style>
+<div class="mature-content-con">
+<div class="m-c-ct">
+<div class="m-c-ti">WARNING!</div>
+<div class="m-c-des">
+    This session contains adult content. Please accept you are above 16 years old
+</div>
+<div class="m-c-des des-lang"></div>
+<div class="m-c-btn_bg">
+    <div class="m-c-btn decline">Decline</div>
+    <div class="m-c-btn accept">Accept</div>
+</div>
+</div>
+</div>
+
+<style>
+.toast {
+position: fixed; display: none;
+top: 80vh; left: 10vw;
+width: 80vw; padding: 1vh 0;
+font-size: 4vw;
+background-color: black; border-radius: 10px;
+color: white; text-align: center;
+}
+</style>
+<div class="toast">Oops! levels completed<br/>Check back later for updates</div>
+
+<script>
+Funny_total = localStorage.getItem("Funny_total");
+
+Sex_total = localStorage.getItem("Sex_total");
+
+$("#Funny_total").html(Funny_total);
+$("#Sex_total").html(Sex_total);
+
+
+setTimeout(() => {$(".top-img, .coins").css({transform:'scale(1)', opacity:'1'});}, 100);
+setTimeout(() => {$(".mid").css({transform:'scale(1)', opacity:'1'});}, 200);
+setTimeout(() => {$(".ct1").css({transform:'scale(1)', opacity:'1'});}, 300);
+setTimeout(() => {$(".ct2").css({transform:'scale(1)', opacity:'1'});}, 400);
+
+function Outro() {
+setTimeout(() => {$(".ct").css({transform:'scale(1.2)', opacity:'0'});}, 100);
+setTimeout(() => {$(".mid, .stats-bg").css({transform:'scale(1.2)', opacity:'0'});}, 200);
+setTimeout(() => {$(".top-img, .coins").css({transform:'scale(1.2)', opacity:'0'});}, 300);
+}
+
+if (localStorage.getItem("lang") == "hin") {
+$(".t-a").html("कुल उत्तर");
+$(".a-y").html("उत्तर हाँ दिया");
+$(".a-n").html("उत्तर ना दिया");
+$(".a-ma").html("उत्तर दिया बहुमत");
+$(".a-mi").html("उत्तर अल्पसंख्यक");
+$(".des-lang").fadeIn(0);
+$(".des-lang").html("इस सत्र में वयस्क सामग्री है। कृपया स्वीकार करें कि आपकी आयु 16 वर्ष से अधिक है");
+}
+
+if (localStorage.getItem("lang") == "mal") {
+$(".stats-ct").css({fontSize:'4.5vw'});
+$(".t-a").html("ആകെ ഉത്തരം");
+$(".a-y").html("അതെ എന്ന ഉത്തരം");
+$(".a-n").html("അല്ല എന്ന ഉത്തരം");
+$(".a-ma").html("ഉത്തരം ഭൂരിപക്ഷം");
+$(".a-mi").html("ഉത്തരം ന്യൂനപക്ഷം");
+$(".des-lang").css({fontSize:'3vw'});
+$(".des-lang").fadeIn(0);
+$(".des-lang").html("ഈ സെഷനിൽ മുതിർന്നവരുടെ ഉള്ളടക്കം അടങ്ങിയിരിക്കുന്നു. നിങ്ങൾക്ക് 16 വയസ്സിന് മുകളിൽ പ്രായമുണ്ടെന്ന് ദയവായി അംഗീകരിക്കുക");
+}
+
+if (localStorage.getItem("lang") == "tam") {
+$(".stats-ct").css({fontSize:'4.5vw'});
+$(".t-a").html("மொத்த பதில்");
+$(".a-y").html("பதில் ஆம்");
+$(".a-n").html("பதில் இல்லை");
+$(".a-ma").html("பதில் பெரும்பான்மை");
+$(".a-mi").html("பதில் சிறுபான்மை");
+$(".des-lang").css({fontSize:'3vw'});
+$(".des-lang").fadeIn(0);
+$(".des-lang").html("இந்த அமர்வில் வயது வந்தோர் உள்ளடக்கம் உள்ளது. நீங்கள் 16 வயதுக்கு மேற்பட்டவர்கள் என்பதை தயவுசெய்து ஏற்றுக்கொள்ளுங்கள்");
+}
+
+
+
+if (localStorage.getItem("Funny") == null) {
+    localStorage.setItem("t_a", 0); //Total Answered
+    localStorage.setItem("a_y", 0); //Answered Yes
+    localStorage.setItem("a_n", 0); //Answered No
+    localStorage.setItem("a_ma", 0); //Answered Majority
+    localStorage.setItem("a_mi", 0); //Answered Minority
+    localStorage.setItem("Funny", 1); localStorage.setItem("Sex", 1);
+}
+
+t_a = localStorage.getItem("t_a"); //Total Answered
+a_y = localStorage.getItem("a_y"); //Answered Yes
+a_n = localStorage.getItem("a_n"); //Answered No
+a_ma = localStorage.getItem("a_ma"); //Answered Majority
+a_mi = localStorage.getItem("a_mi"); //Answered Minority
+
+$(".total_answered").html(t_a);
+$(".answered_yes").html(a_y);
+$(".answered_no").html(a_n);
+$(".answered_majority").html(a_ma);
+$(".answered_minority").html(a_mi);
+
+Funny = parseInt(localStorage.getItem("Funny"));
+Sex = parseInt(localStorage.getItem("Sex"));
+
+$("#Funny_levels").html(Funny);
+$("#Sex_levels").html(Sex);
+
+$(".ct1").click(function() {
+localStorage.setItem("mode", "Funny");
+mode = "Funny";
+ctFunction();
+});
+$(".ct2").click(function() {
+if (localStorage.getItem("mature") == null) {
+$(".mature-content-con").css({display:'flex'});
+} else {
+localStorage.setItem("mode", "Sex");
+mode = "Sex";
+ctFunction();
+}
+});
+
+function ctFunction() {
+if (window[mode] <= window[mode+"_total"]) {
+setTimeout(() => {
+parent.location="content.html";
+}, 600);
+Outro();
+} else {
+$(".toast").fadeIn();
+setTimeout(() => {$(".toast").fadeOut();}, 2000);
+}
+}
+
+stats = false;
+$(".stats").click(function() {
+if (!stats) {
+stats = true;
+$(".btm2").css({transform:"translateY(-100%)", opacity:'1'});
+$(".stats").css({borderColor:"white"});
+$(".mode").css({borderColor:'transparent'});
+}
+});
+$(".mode").click(function() {
+if (stats) {
+stats = false;
+$(".btm2").css({transform:"translateY(0%)", opacity:'0'});
+$(".mode").css({borderColor:"white"});
+$(".stats").css({borderColor:'transparent'});
+}
+});
+
+$(".top-img").click(function() {
+Outro();
+});
+
+function matureExit() {
+$(".mature-content-con").css({transform:'scale(1.2)', opacity:'0'});
+setTimeout(() => {
+$(".mature-content-con").fadeOut(0);
+$(".mature-content-con").css({transform:'scale(1)', opacity:'1'});
+}, 410);
+}
+
+$(".accept").click(function() {
+localStorage.setItem("mature", 1);
+matureExit();
+});
+$(".decline").click(function() {
+matureExit();
+});
+
+$(".back-img").click(function() {
+setTimeout(() => {window.history.back();}, 400);
+});
+</script>
+</body>
+</html>
