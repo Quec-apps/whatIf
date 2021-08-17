@@ -308,8 +308,11 @@ $(".yes_no-bg").css({transform:'translateX(-100%)', opacity:'0'});
 $(".answer-bg").css({transform:'translateY(-100%)', opacity:'1'});
 });
 
+inter = 0;
+
 $(".card2").click(function() {
 if (opened <= localStorage.getItem(mode+"_total")) {
+    inter ++; if (inter == 7) {parent.location="https://inter"; inter = 0;}
     appendAll();
     $(".yes_no-bg").css({transform:'translateX(0%)', opacity:'1'});
     $(".answer-bg").css({transform:'translateY(100%)', opacity:'0'});
