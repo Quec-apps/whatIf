@@ -104,7 +104,7 @@ window["n" + tmp] = 80;
 
 tmp ++;
 window["w" + tmp] = "you got all your sex fantasies fulfilled";
-window["b" + tmp] = "your life partner hated you";
+window["b" + tmp] = "आपका जीवन साथी आपसे नफरत करता है";
 window["y" + tmp] = 28;
 window["n" + tmp] = 72;
 
