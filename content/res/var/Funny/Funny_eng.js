@@ -55,12 +55,6 @@ window["y" + tmp] = 46;
 window["n" + tmp] = 54;
 
 tmp ++;
-window["w" + tmp] = "you have twice as great sex every time";
-window["b" + tmp] = "you have to have sex every day, or you will die";
-window["y" + tmp] = 53;
-window["n" + tmp] = 47;
-
-tmp ++;
 window["w" + tmp] = "the first thing you hear every morning is 'I Love You'";
 window["b" + tmp] = "it is always different people who say it";
 window["y" + tmp] = 37;
@@ -143,22 +137,7 @@ window["w" + tmp] = "you could rotate your head 360 degree";
 window["b" + tmp] = "your lifespan will be half as your real lifespan";
 window["y" + tmp] = 14;
 window["n" + tmp] = 86;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//new
 tmp ++;
 window["w" + tmp] = "you could be as rich as you want";
 window["b" + tmp] = "you will become mad after the age of 30";
@@ -214,7 +193,7 @@ window["y" + tmp] = 19;
 window["n" + tmp] = 81;
 
 tmp ++;
-window["w" + tmp] = "you could live in the world as your favorite book/movie";
+window["w" + tmp] = "You can live in the world as the story of your favorite book/movie";
 window["b" + tmp] = "you have to be villian";
 window["y" + tmp] = 48;
 window["n" + tmp] = 52;
@@ -232,64 +211,64 @@ window["y" + tmp] = 31;
 window["n" + tmp] = 69;
 
 tmp ++;
-window["w" + tmp] = "";
-window["b" + tmp] = "";
-window["y" + tmp] = 24;
-window["n" + tmp] = 76;
+window["w" + tmp] = "you get anything on earth for free";
+window["b" + tmp] = "you have to pee every half an hour";
+window["y" + tmp] = 36;
+window["n" + tmp] = 64;
 
 tmp ++;
-window["w" + tmp] = "";
-window["b" + tmp] = "";
-window["y" + tmp] = 24;
-window["n" + tmp] = 76;
+window["w" + tmp] = "you could be Batman";
+window["b" + tmp] = "Superman would always be trying to kill you";
+window["y" + tmp] = 33;
+window["n" + tmp] = 67;
 
 tmp ++;
-window["w" + tmp] = "";
-window["b" + tmp] = "";
-window["y" + tmp] = 24;
-window["n" + tmp] = 76;
+window["w" + tmp] = "you could think of any clothing item and it would be in your closet";
+window["b" + tmp] = "you couldn't eat any sugary food";
+window["y" + tmp] = 20;
+window["n" + tmp] = 80;
 
 tmp ++;
-window["w" + tmp] = "";
-window["b" + tmp] = "";
-window["y" + tmp] = 24;
-window["n" + tmp] = 76;
+window["w" + tmp] = "you could fly";
+window["b" + tmp] = "cannot run";
+window["y" + tmp] = 74;
+window["n" + tmp] = 26;
 
 tmp ++;
-window["w" + tmp] = "";
-window["b" + tmp] = "";
-window["y" + tmp] = 24;
-window["n" + tmp] = 76;
+window["w" + tmp] = "you could be fit and healthy";
+window["b" + tmp] = "you couldn't eat your favorite food anymore";
+window["y" + tmp] = 40;
+window["n" + tmp] = 60;
 
 tmp ++;
-window["w" + tmp] = "";
-window["b" + tmp] = "";
-window["y" + tmp] = 24;
-window["n" + tmp] = 76;
+window["w" + tmp] = "you get your dream car";
+window["b" + tmp] = "if you exceed the speedlimit your car explodes";
+window["y" + tmp] = 32;
+window["n" + tmp] = 68;
 
 tmp ++;
-window["w" + tmp] = "";
-window["b" + tmp] = "";
-window["y" + tmp] = 24;
-window["n" + tmp] = 76;
+window["w" + tmp] = "you can be invisible for a day";
+window["b" + tmp] = "you have to be naked for a week";
+window["y" + tmp] = 32;
+window["n" + tmp] = 68;
 
 tmp ++;
-window["w" + tmp] = "";
-window["b" + tmp] = "";
-window["y" + tmp] = 24;
-window["n" + tmp] = 76;
+window["w" + tmp] = "you were slapped once every day";
+window["b" + tmp] = "were complemented with a kiss from a person by your choosing";
+window["y" + tmp] = 66;
+window["n" + tmp] = 34;
 
 tmp ++;
-window["w" + tmp] = "";
-window["b" + tmp] = "";
-window["y" + tmp] = 24;
-window["n" + tmp] = 76;
+window["w" + tmp] = "you could be more productive in your daily activities";
+window["b" + tmp] = "you can't play football, cricket and volleyball";
+window["y" + tmp] = 43;
+window["n" + tmp] = 57;
 
 tmp ++;
-window["w" + tmp] = "";
-window["b" + tmp] = "";
-window["y" + tmp] = 24;
-window["n" + tmp] = 76;
+window["w" + tmp] = "you are fluent in all languages";
+window["b" + tmp] = "you forgot your mother tongue";
+window["y" + tmp] = 36;
+window["n" + tmp] = 64;
 
 tmp ++;
 window["w" + tmp] = "";

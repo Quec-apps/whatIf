@@ -109,6 +109,12 @@ window["y" + tmp] = 28;
 window["n" + tmp] = 72;
 
 tmp ++;
+window["w" + tmp] = "you have twice as great sex every time";
+window["b" + tmp] = "you have to have sex every day, or you will die";
+window["y" + tmp] = 53;
+window["n" + tmp] = 47;
+
+tmp ++;
 window["w" + tmp] = "";
 window["b" + tmp] = "";
 window["y" + tmp] = 24;

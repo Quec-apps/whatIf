@@ -147,7 +147,7 @@ document.body.appendChild(myScript);
 </script>
 
 <div class="top">
-    <img src="res/img/lang.webp" class="top-img lang_open">
+    <img src="res/img/back.webp" class="top-img back-img">
     <div class="coins"><img src="res/img/coins.webp" class="coins-img"><div id="coins">26</div></div>
     <img src="res/img/list.webp" class="top-img mode_open">
 </div>
@@ -196,7 +196,7 @@ setTimeout(() => {$(".btm, .mode_name").css({transform:'scale(1.2)', opacity:'0'
 }
 
 total = localStorage.getItem(mode+"_total");
-opened = localStorage.getItem(mode);
+opened = parseInt(localStorage.getItem(mode));
 $(".mode_name").html(mode);
 fileIntervel = setInterval(() => {
 if (fileLoaded) {
@@ -325,9 +325,9 @@ $(".mode_open").click(function() {
 Outro();
 setTimeout(() => {window.history.back();}, 600);
 });
-$(".lang_open").click(function() {
+$(".back-img").click(function() {
 Outro();
-setTimeout(() => {window.history.go(-2);}, 600);
+setTimeout(() => {window.history.back();}, 600);
 });
 
 

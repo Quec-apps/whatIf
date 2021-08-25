@@ -25,82 +25,250 @@ window["y" + tmp] = 52;
 window["n" + tmp] = 48;
 
 tmp ++;
-window["w" + tmp] = "you point out five people that, along with yourself, would be terribly successful";
-window["b" + tmp] = "you also point out five people whose lives will be destroyed";
+window["w" + tmp] = "आप पांच लोगों की ओर इशारा करते हैं, जो आपके साथ-साथ बहुत सफल होंगे";
+window["b" + tmp] = "आप उन पांच लोगों को भी इंगित करते हैं जिनका जीवन नष्ट हो जाएगा";
 window["y" + tmp] = 54;
 window["n" + tmp] = 46;
 
 tmp ++;
-window["w" + tmp] = "you can never fail";
-window["b" + tmp] = "you can never give up";
+window["w" + tmp] = "आप कभी असफल नहीं हो सकते";
+window["b" + tmp] = "आप कभी हार नहीं मान सकते";
 window["y" + tmp] = 80;
 window["n" + tmp] = 20;
 
 tmp ++;
-window["w" + tmp] = "";
-window["b" + tmp] = "";
+window["w" + tmp] = "आपने धाराप्रवाह तीन नई भाषाएँ सीखीं";
+window["b" + tmp] = "आप अपनी मातृभाषा भूल जाते हैं";
+window["y" + tmp] = 39;
+window["n" + tmp] = 61;
+
+tmp ++;
+window["w" + tmp] = "आप हमेशा के लिए जी सकते हैं";
+window["b" + tmp] = "आप फिर कभी किसी से बात नहीं कर सकते";
+window["y" + tmp] = 19;
+window["n" + tmp] = 81;
+
+tmp ++;
+window["w" + tmp] = "आपके पास एक जादुई प्रिंटर है जो असली पैसे प्रिंट कर सकता है";
+window["b" + tmp] = "आपको अपने पूरे जीवन के लिए एक लहंगा पहनना है और कोई अंडरवियर नहीं पहनना है";
+window["y" + tmp] = 46;
+window["n" + tmp] = 54;
+
+tmp ++;
+window["w" + tmp] = "हर सुबह सबसे पहली बात जो आप सुनते हैं वह है 'आई लव यू'";
+window["b" + tmp] = "यह हमेशा अलग लोग हैं, जो यह कहते हैं कि है";
+window["y" + tmp] = 37;
+window["n" + tmp] = 63;
+
+tmp ++;
+window["w" + tmp] = "आप हमेशा अच्छे आकार में थे";
+window["b" + tmp] = "आपको सप्ताह में कुछ बार व्यायाम करना होगा";
+window["y" + tmp] = 85;
+window["n" + tmp] = 15;
+
+tmp ++;
+window["w" + tmp] = "आपको अपना एक क्लोन मिला है जो आपके आदेशों का पालन करता है";
+window["b" + tmp] = "यह उसी व्यक्ति के प्यार में पड़ता है जिससे आप प्यार करते हैं";
+window["y" + tmp] = 30;
+window["n" + tmp] = 70;
+
+tmp ++;
+window["w" + tmp] = "आपकी गंध की भावना कुत्ते की है";
+window["b" + tmp] = "आपको बुरी गंध आती है";
+window["y" + tmp] = 21;
+window["n" + tmp] = 79;
+
+tmp ++;
+window["w" + tmp] = "आप आइसक्रीम को सोने में बदल सकते हैं";
+window["b" + tmp] = "आप जीवन भर गंजे रहेंगे";
+window["y" + tmp] = 32;
+window["n" + tmp] = 68;
+
+tmp ++;
+window["w" + tmp] = "जब आप घर पहुँचते हैं तो आपके लिए हमेशा एक सरप्राइज पार्टी की व्यवस्था की जाती है";
+window["b" + tmp] = "आप भोजन और नृत्य से नफरत करते हैं";
+window["y" + tmp] = 24;
+window["n" + tmp] = 76;
+
+tmp ++;
+window["w" + tmp] = "आप किसी भी सेलिब्रिटी से शादी कर सकते हैं";
+window["b" + tmp] = "आप दुनिया के सबसे बदसूरत व्यक्ति हैं";
+window["y" + tmp] = 18;
+window["n" + tmp] = 82;
+
+tmp ++;
+window["w" + tmp] = "आप हर दिन और अधिक आकर्षक होते जाते हैं जो बीतता है";
+window["b" + tmp] = "आप केवल सुबह सो सकते हैं";
+window["y" + tmp] = 25;
+window["n" + tmp] = 75;
+
+tmp ++;
+window["w" + tmp] = "आप एक उंगली के स्नैप पर कोई भी खाना खा सकते हैं";
+window["b" + tmp] = "लेकिन आपको चॉकलेट और पिज्जा से नफरत है";
+window["y" + tmp] = 44;
+window["n" + tmp] = 56;
+
+tmp ++;
+window["w" + tmp] = "आपके पिता ने आपके द्वारा दिए गए लॉटरी टिकट पर $50,000 जीते";
+window["b" + tmp] = "पापा आपसे कुछ शेयर नहीं करेंगे";
 window["y" + tmp] = 54;
 window["n" + tmp] = 46;
 
 tmp ++;
-window["w" + tmp] = "";
-window["b" + tmp] = "";
-window["y" + tmp] = 54;
-window["n" + tmp] = 46;
+window["w" + tmp] = "आप अपने पूरे जीवन के लिए अमीर और प्रसिद्ध हैं";
+window["b" + tmp] = "आप साइकिल के अलावा किसी भी वाहन की सवारी नहीं कर सकते";
+window["y" + tmp] = 32;
+window["n" + tmp] = 68;
 
 tmp ++;
-window["w" + tmp] = "";
-window["b" + tmp] = "";
-window["y" + tmp] = 54;
-window["n" + tmp] = 46;
+window["w" + tmp] = "आपको महंगे जूतों की एक नई जोड़ी मिलती है";
+window["b" + tmp] = "आप कोई अन्य जूते खरीद या उपयोग नहीं कर सकते";
+window["y" + tmp] = 12;
+window["n" + tmp] = 88;
 
 tmp ++;
-window["w" + tmp] = "";
-window["b" + tmp] = "";
-window["y" + tmp] = 54;
-window["n" + tmp] = 46;
+window["w" + tmp] = "आप दस मिनट के लिए किसी भी महाशक्ति का उपयोग कर सकते हैं";
+window["b" + tmp] = "आपकी प्रेमिका बहुत मोटी हो जाएगी";
+window["y" + tmp] = 40;
+window["n" + tmp] = 60;
 
 tmp ++;
-window["w" + tmp] = "";
-window["b" + tmp] = "";
-window["y" + tmp] = 54;
-window["n" + tmp] = 46;
+window["w" + tmp] = "आप अपना सिर 360 डिग्री घुमा सकते हैं";
+window["b" + tmp] = "आपका जीवन काल आपके वास्तविक जीवन काल से आधा होगा";
+window["y" + tmp] = 14;
+window["n" + tmp] = 86;
+//new
+tmp ++;
+window["w" + tmp] = "आप जितने चाहें उतने अमीर हो सकते हैं";
+window["b" + tmp] = "30 साल की उम्र के बाद पागल हो जाओगे";
+window["y" + tmp] = 18;
+window["n" + tmp] = 82;
 
 tmp ++;
-window["w" + tmp] = "";
-window["b" + tmp] = "";
-window["y" + tmp] = 54;
-window["n" + tmp] = 46;
+window["w" + tmp] = "आप जिससे प्यार करते हैं उसके साथ आप एक लंबा, स्वस्थ, सुखी जीवन जी सकते हैं";
+window["b" + tmp] = "आप ज्यादातर समय बीमार रहेंगे";
+window["y" + tmp] = 86;
+window["n" + tmp] = 14;
 
 tmp ++;
-window["w" + tmp] = "";
-window["b" + tmp] = "";
-window["y" + tmp] = 54;
-window["n" + tmp] = 46;
+window["w" + tmp] = "आपको ब्रह्मांड के बारे में सब कुछ जानने का मौका मिलता है";
+window["b" + tmp] = "आप फिर कभी भावनाओं का अनुभव नहीं करते";
+window["y" + tmp] = 32;
+window["n" + tmp] = 68;
 
 tmp ++;
-window["w" + tmp] = "";
-window["b" + tmp] = "";
-window["y" + tmp] = 54;
-window["n" + tmp] = 46;
+window["w" + tmp] = "आप किसी को या कुछ को मृतकों में से वापस ला सकते हैं";
+window["b" + tmp] = "जिसे आप प्यार करते हैं या आपके किसी करीबी को मरना है";
+window["y" + tmp] = 11;
+window["n" + tmp] = 89;
 
 tmp ++;
-window["w" + tmp] = "";
-window["b" + tmp] = "";
-window["y" + tmp] = 54;
-window["n" + tmp] = 46;
+window["w" + tmp] = "आप अपने सबसे बड़े दुश्मन को मार सकते हैं";
+window["b" + tmp] = "आप उनके द्वारा प्रेतवाधित होंगे";
+window["y" + tmp] = 14;
+window["n" + tmp] = 86;
 
 tmp ++;
-window["w" + tmp] = "";
-window["b" + tmp] = "";
-window["y" + tmp] = 54;
-window["n" + tmp] = 46;
+window["w" + tmp] = "हर बार जब आप किसी लड़की को देखते हैं तो आप उसे सुपरपावर के साथ तुरंत अपने प्यार में पड़ सकते हैं";
+window["b" + tmp] = "आप और आपका जीवन साथी हमेशा गरीब रहेंगे";
+window["y" + tmp] = 30;
+window["n" + tmp] = 70;
 
 tmp ++;
-window["w" + tmp] = "";
-window["b" + tmp] = "";
-window["y" + tmp] = 54;
-window["n" + tmp] = 46;
+window["w" + tmp] = "आप उड़ सकते हैं और अंतरिक्ष में भी सांस ले सकते हैं";
+window["b" + tmp] = "आप ब्रह्मांड में एकमात्र जीवित प्राणी हैं";
+window["y" + tmp] = 44;
+window["n" + tmp] = 56;
+
+tmp ++;
+window["w" + tmp] = "आप किसी भी वीडियो गेम के दृश्य को वास्तविक बना सकते हैं";
+window["b" + tmp] = "खलनायक हमेशा तुम्हारे पीछे आएंगे";
+window["y" + tmp] = 45;
+window["n" + tmp] = 55;
+
+tmp ++;
+window["w" + tmp] = "आप किसी भी जानवर से बात कर सकते हैं जिसे आप देखते हैं";
+window["b" + tmp] = "इंसान अब आपको नहीं समझते";
+window["y" + tmp] = 19;
+window["n" + tmp] = 81;
+
+tmp ++;
+window["w" + tmp] = "आप दुनिया में अपनी पसंदीदा किताब/फिल्म की कहानी के रूप में रह सकते हैं";
+window["b" + tmp] = "आपको खलनायक बनना होगा";
+window["y" + tmp] = 48;
+window["n" + tmp] = 52;
+
+tmp ++;
+window["w" + tmp] = "आपके पास कोई भी 3 महाशक्तियाँ हो सकती हैं जो आप चाहते थे";
+window["b" + tmp] = "इसके लिए आपको अपने 3 दोस्तों की कुर्बानी देनी होगी";
+window["y" + tmp] = 34;
+window["n" + tmp] = 66;
+
+tmp ++;
+window["w" + tmp] = "आपने लॉटरी जीती";
+window["b" + tmp] = "आपका दोनों पैर काट देना चाहिए";
+window["y" + tmp] = 31;
+window["n" + tmp] = 69;
+
+tmp ++;
+window["w" + tmp] = "आपको धरती पर कुछ भी मुफ्त में मिलता है";
+window["b" + tmp] = "आपको हर आधे घंटे में पेशाब करना होगा";
+window["y" + tmp] = 36;
+window["n" + tmp] = 64;
+
+tmp ++;
+window["w" + tmp] = "आप बैटमैन हो सकते हैं";
+window["b" + tmp] = "सुपरमैन हमेशा आपको मारने की कोशिश करेगा";
+window["y" + tmp] = 33;
+window["n" + tmp] = 67;
+
+tmp ++;
+window["w" + tmp] = "आप किसी भी कपड़े की वस्तु के बारे में सोच सकते हैं और वह आपकी अलमारी में होगी";
+window["b" + tmp] = "आप कोई मीठा खाना नहीं खा सकते थे";
+window["y" + tmp] = 20;
+window["n" + tmp] = 80;
+
+tmp ++;
+window["w" + tmp] = "तुम उड़ सकते हो";
+window["b" + tmp] = "भाग नहीं सकता";
+window["y" + tmp] = 74;
+window["n" + tmp] = 26;
+
+tmp ++;
+window["w" + tmp] = "आप फिट और स्वस्थ हो सकते हैं";
+window["b" + tmp] = "आप अब अपना पसंदीदा खाना नहीं खा सकते हैं";
+window["y" + tmp] = 40;
+window["n" + tmp] = 60;
+
+tmp ++;
+window["w" + tmp] = "आपको एक कार मिलती है जिसका आपने सपना देखा था";
+window["b" + tmp] = "यदि आप गति सीमा से अधिक हो जाते हैं तो आपकी कार में विस्फोट हो जाता है";
+window["y" + tmp] = 32;
+window["n" + tmp] = 68;
+
+tmp ++;
+window["w" + tmp] = "आप एक दिन के लिए अदृश्य हो सकते हैं";
+window["b" + tmp] = "आपको एक सप्ताह तक नग्न रहना होगा";
+window["y" + tmp] = 32;
+window["n" + tmp] = 68;
+
+tmp ++;
+window["w" + tmp] = "आपको हर दिन एक बार थप्पड़ मारा गया था";
+window["b" + tmp] = "अपने चयन के द्वारा एक व्यक्ति से एक चुंबन के साथ पूरित कर रहे थे";
+window["y" + tmp] = 66;
+window["n" + tmp] = 34;
+
+tmp ++;
+window["w" + tmp] = "आप अपनी दैनिक गतिविधियों में अधिक उत्पादक हो सकते हैं";
+window["b" + tmp] = "आप फुटबॉल, क्रिकेट और वॉलीबॉल नहीं खेल सकते";
+window["y" + tmp] = 43;
+window["n" + tmp] = 57;
+
+tmp ++;
+window["w" + tmp] = "आप सभी भाषाओं में धाराप्रवाह हैं";
+window["b" + tmp] = "आप अपनी मातृभाषा भूल गए";
+window["y" + tmp] = 36;
+window["n" + tmp] = 64;
 
 
 
