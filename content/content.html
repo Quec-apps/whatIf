@@ -4,23 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Content</title>
     <script src="res/jquery.min.js"></script>
+    <title>Content</title>
 </head>
 <body>
+<script>
+opened = localStorage.getItem("opened");
+fileLoaded = false;
+let myScript = document.createElement("script");
+myScript.setAttribute("src", "res/var/"+opened+".js");
+document.body.appendChild(myScript);
+</script>
 <style>
 @font-face {
-    font-family: ArialBold;
-    src: url(res/font/Arial_Rounded_Bold.ttf);
+    font-family: feather;
+    src: url(res/font/feather_bold.otf);
 }
+
 html, body {
-width: 100%; height: 100%;
-overflow: hidden;
+width: 100%; height: 100vh; overflow: hidden;
 }
 body {
-margin: 0; color: white;
-background-color: #082fa4;
-font-family: ArialBold;
+background-color: #cdccd0;
+color: black; margin: 0;
+font-family: feather;
 user-select: none; /* supported by Chrome and Opera */
 -webkit-user-select: none; /* Safari */
 -khtml-user-select: none; /* Konqueror HTML */
@@ -28,311 +35,363 @@ user-select: none; /* supported by Chrome and Opera */
 -ms-user-select: none; /* Internet Explorer/Edge */
 }
 
-.top {
-width: 100vw; height: 10vh;
-display: flex; align-items: center; justify-content: space-between;
-}
-.top-img {
-width: 17vw; height: 17vw;
-transition: all 300ms ease;
-opacity: 0; transform: scale(1.2);
-} .top-img:active {
-transition: none !important; opacity: .6 !important;
-}
-.coins {
-display: flex; justify-content: space-around; align-items: center;
-transition: all 300ms ease;
-opacity: 0; transform: scale(1.2); visibility: hidden;
-}
-.coins-img {
-width: 7vw; height: 7vw; margin-right: 1vw;
-}
-#coins {
-font-size: 6vw;
+.fixed_bg {
+width: 100vw; height: 70vh;
+background-color: black;
+position: fixed; top: 0; left: 0;
+border-radius: 0 0 20px 20px;
+z-index: -1;
+animation: fixed_bg 400ms ease 1;
+transition: all 400ms ease;
+} @keyframes fixed_bg {
+    0% {transform: translateY(-100%); opacity: 0;}
+    100% {transform: translateY(0%); opacity: 1;}
 }
 
-.mid {
-width: 100%; height: 75vh;
+.top {
+width: 100vw; height: 20vh;
+animation: top 400ms ease 1;
+transition: all 400ms ease;
+} @keyframes top {
+    0% {transform: scale(1.2); opacity: 0;}
+    100% {transform: scale(1); opacity: 1;}
+}
+.back-img {
+position: fixed; top: 5vh; left: 5vw;
+width: 6vh; height: 6vh;
+} .back-img:active {
+opacity: .5;
+}
+.title-bg {
+width: 100vw; text-align: center;
+font-size: 9vw; color: white;
+padding-top: 4vh;
 display: flex; flex-wrap: wrap;
-justify-content: center; align-content: space-around;
+align-content: center;
 }
-.mode_name {
-width: 100%; padding-left: 3vw;
-font-size: 6vw;
-transform: scale(1.2); opacity: 0;
-transition: all 300ms ease;
+.title {
+width: 100vw;
 }
-.main-ct {
-width: 90vw; min-height: 40vw; background-color: #e33966;
-border-radius: 10px; padding: 4vw;
-transition: all 300ms ease;
-opacity: 0; transform: scale(1.2);
+.ques {
+width: 100vw;
+font-size: 4vw;
 }
-.but {
-background-color: #f66838;
-}
-.main-txt {
-font-size: 7vw; text-align: center;
-}
-.ct-txt {
-width: 100%;
-font-size: 4.5vw;
-text-align: center;
+.levels {
+color: white; font-size: 7vw;
+position: absolute; top: 6vh; left: 88vw;
 }
 
 .btm {
-width: 100vw; height: 15vh;
-display: flex; flex-wrap: wrap;
-transition: all 300ms ease;
-transform: scale(1.2); opacity: 0;
-}
-.yes_no-bg {
-width: 100%; height: 15vh;
-display: flex; flex-wrap: wrap;
-justify-content: space-around; align-items: center;
+width: 100vw; height: 79vh;
+display: flex; flex-wrap: wrap; justify-content: space-around;
+align-items: center;
+animation: btm 400ms ease 1;
 transition: all 400ms ease;
+} @keyframes btm {
+    0% {transform: translateY(100%); opacity: 0;}
+    100% {transform: translateY(0%); opacity: 1;}
 }
-.btn {
-width: 45vw; height: 11vh;
-background-color: #e10043;
-display: flex; justify-content: center; align-items: center;
-font-size: 7vw; border: solid 1vw white;
-} .btn:active {
+.btm-ct {
+width: 90vw; height: 100%;
+border-radius: 15px; background-color: white;
+display: flex; flex-wrap: wrap;
+justify-content: center; align-content: baseline;
+}
+
+.question {
+width: 100%; height: 15vh;
+} .question-ct {
+padding: 1vh 3vw;
+font-size: 4vw;
+}
+
+.add-comment-bg {
+width: 95%; height: 7vh;
+background-color: black; border-radius: 5px;
+display: flex; justify-content: space-around; align-items: center;
+}
+
+.input {
+width: 70%; height: 4.5vh;
+padding: 0 3vw;
+font-family: feather;
+background-color: transparent;
+border-radius: 10px;
+border: solid 1px #6c6c6c;
+color: white;
+}
+.share-img {
+width: 4vh; height: 4vh;
+} .share-img:active {
 transition: none; opacity: .6;
 }
 
-.answer-bg {
-width: 100%; height: 15vh;
-display: flex; flex-wrap: wrap; opacity: 1;
-justify-content: space-around; align-items: center;
-transition: all 400ms ease;
-
+.sort-bg {
+width: 100%; height: 5vh;
+display: none; justify-content: flex-end;
 }
-.card1 {
-width: 55vw; height: 13vh;
-background-color: #e10043;
+.sort-ct {
+margin-right: 5vw; visibility: hidden;
 display: flex; flex-wrap: wrap;
-justify-content: center; align-items: center;
-font-size: 7vw; border: solid 1vw white;
+justify-content: center; align-content: center;
 }
-.card2 {
-width: 35vw; height: 13vh;
-background-color: #ad20d1;
-display: flex; justify-content: center; align-items: center;
-font-size: 7vw; border: solid 1vw white;
-} .card2:active {
-transition: none;
-opacity: .6;
+.sort-txt {
+font-size: 4vw;
 }
-.card-ti {
-width: 100%;
-text-align: center;
-}
-.card-txt {
-width: 100%; text-align: center;
-font-size: 4.5vw;
+.down-img {
+width: 2vh; height: 2vh;
+margin-left: 1vw;
+transform: translateY(.5vh);
 }
 
-.next-img {
-width: 13vw; height: 13vw;
+.comment-ct {
+width: 90%; height: 48vh;
+border-radius: 15px;
+overflow-y: scroll;
+border: solid 1px #6c6c6c;
+position: relative;
+} .comment-area {width: 100%; height: 100%;}
+.show-comment {
+width: 100%; padding: 2vh 0;
+background-color: black; color: white;
+border-radius: 10px; font-size: 4vw;
+position: absolute; top:37vh; left:0;
+text-align: center;
+} .show-comment:active {
+transition: none; opacity: .5;
+}
+
+.nav-bg {
+width: 100%; height: 9vh;
+display: flex; flex-wrap: wrap;
+justify-content: space-around; align-content: center;
+}
+.nav-img {
+width: 6vh; height: 6vh;
+} .nav-img:active {
+transition: none; opacity: .5;
 }
 </style>
-<script>
-mode = localStorage.getItem("mode");
-lang = localStorage.getItem("lang");
-fileLoaded = false;
-let myScript = document.createElement("script");
-myScript.setAttribute("src", "res/var/"+mode+"/"+mode+"_"+lang+".js");
-document.body.appendChild(myScript);
-</script>
 
+<div class="fixed_bg"></div>
 <div class="top">
-    <img src="res/img/back.webp" class="top-img back-img">
-    <div class="coins"><img src="res/img/coins.webp" class="coins-img"><div id="coins">26</div></div>
-    <img src="res/img/list.webp" class="top-img mode_open">
+<img src="res/img/back.webp" class="back-img">
+<div class="title-bg">
+    <div class="title">What If</div><div class="ques">Questions</div>
 </div>
-
-<div class="mid">
-<div class="mode_name">Basic</div>
-<div class="main-ct what-if">
-<div class="main-txt what-if-txt">What if...</div>
-<div class="ct-txt what-if-ct"></div>
-</div>
-<div class="main-ct but">
-    <div class="main-txt but-txt">But...</div>
-    <div class="ct-txt but-ct"></div>
-</div>
+<div class="levels">23</div>
 </div>
 
 <div class="btm">
-<div class="yes_no-bg">
-<div class="yes btn">Yes</div>
-<div class="no btn">No</div>
+<div class="btm-ct">
+
+<div class="question">
+    <div class="question-ct"></div>
 </div>
 
-<div class="answer-bg">
-<div class="card1">
-<div class="card-ti"><span id="card-ti"></span>!</div>
-<div class="card-txt">
-    <span id="answered"></span>% <span id="card-txt1">answered like you</span><br/>
-    <span id="unanswered"></span>% <span id="card-txt2">answered</span><span id="not-click"></span>
+<div class="add-comment-bg">
+<input type="text" class="input" id="input" placeholder="Write your comment here">
+<img src="res/img/share.webp" class="share-img submit">
 </div>
-</div>
-<div class="card2">
-    <img src="res/img/next.webp" class="next-img">
-</div>
-</div>
-</div>
-<script>
-setTimeout(() => {$(".top-img, .coins").css({transform:'scale(1)', opacity:'1'});}, 100);
-setTimeout(() => {$(".what-if").css({transform:'scale(1)', opacity:'1'});}, 200);
-setTimeout(() => {$(".but").css({transform:'scale(1)', opacity:'1'});}, 300);
-setTimeout(() => {$(".btm, .mode_name").css({transform:'scale(1)', opacity:'1'});}, 400);
 
-function Outro() {
-setTimeout(() => {$(".top-img, .coins").css({transform:'scale(1.2)', opacity:'0'});}, 100);
-setTimeout(() => {$(".main-ct").css({transform:'scale(1.2)', opacity:'0'});}, 200);
-setTimeout(() => {$(".btm, .mode_name").css({transform:'scale(1.2)', opacity:'0'});}, 300);
+<div class="sort-bg">
+<div class="sort-ct">
+    <div class="sort-txt">Sort</div>
+    <img src="res/img/down.webp" class="down-img">
+</div>
+</div>
+
+<style>
+.com-ct {
+display: flex; flex-wrap: wrap;
+justify-content: center;
+}
+.com-top {
+width: 100%; height: 5vh; margin-top: 1vh;
+display: flex; align-items: center;
+}
+.profile-img {
+margin: 0 2vw;
+width: 4vh; height: 4vh;
+}
+.c-name {
+padding-left: 1vw;
+}
+.com-btm {
+width: 100%;
+padding: 1vw 2vw;
+padding-bottom: 3vw;
+}
+.com-break {
+width: 70%; height: 1.5px; border-radius: 50%; background-color: #6c6c6c;
 }
 
-total = localStorage.getItem(mode+"_total");
-opened = parseInt(localStorage.getItem(mode));
-$(".mode_name").html(mode);
+.toast {
+width: 76vw; padding: 1vh 4vw;
+background-color: black; border-radius: 10px; display: none;
+position: fixed; top: 60vh; left: 8vw; color: white;
+text-align: center; font-size: 4vw;
+animation: toast 400ms ease 1;
+transition: all 400ms ease;
+} @keyframes toast {
+    0% {transform: scale(1.3); opacity: 0;}
+    100% {transform: scale(1); opacity: 1;}
+}
+</style>
+<div class="comment-ct">
+<div class="comment-area"></div>
+<div class="show-comment">Show comments</div>
+</div>
+
+<div class="nav-bg">
+<img src="res/img/prev.webp" class="nav-img prev">
+<img src="res/img/next.webp" class="nav-img next">
+</div>
+
+</div>
+</div>
+
+<div class="toast">Comment sent</div>
+
+<script>
+
+function appendAll() {
+Hypothetical_levels = localStorage.getItem("Hypothetical_levels");
+Funny_levels = localStorage.getItem("Funny_levels");
+Ironic_levels = localStorage.getItem("Ironic_levels");
+Bestfriend_levels = localStorage.getItem("Bestfriend_levels");
+
+levels = window[opened+"_levels"];
+$(".levels").html(levels);
+
+$(".question-ct").html(window["c" + levels]);
+}
+appendAll();
 fileIntervel = setInterval(() => {
 if (fileLoaded) {
     clearInterval(fileIntervel);
-    allFunction();}
+    appendAll();}
 }, 400);
 
-if (localStorage.getItem("lang") == "hin") {
-$(".what-if-txt").html("...क्या हो अगर");
-$(".but-txt").html("लेकिन");
-$(".yes").html("हाँ");
-$(".no").html("ना");
-$(".card-txt").empty();
-$(".card-txt").append(`
-<span id="answered"></span>% आप की तरह उत्तर दिया<br/>
-<span id="unanswered"></span>% उत्तर <span id="not-click"></span> दिया 
-`);
+function showToast() {
+setTimeout(() => {$(".toast").fadeIn(0);}, 100);
+setTimeout(() => {$(".toast").css({transform:"scale(1.3)", opacity:'0'});}, 2000);
+setTimeout(() => {$(".toast").fadeOut(0); $(".toast").css({transform:"scale(1)", opacity:'1'});}, 2300);
+}
+</script>
 
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyDgTAlhGuPZ0P1s_9mN-efuOLs6iwUkzbQ",
+    authDomain: "what-if-cfbf4.firebaseapp.com",
+    databaseURL: "https://what-if-cfbf4-default-rtdb.firebaseio.com",
+    projectId: "what-if-cfbf4",
+    storageBucket: "what-if-cfbf4.appspot.com",
+    messagingSenderId: "75261769675",
+    appId: "1:75261769675:web:142917cc9d215218ea684e",
+    measurementId: "G-TS187NK8L0"
+  };
+
+  // Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+var database = firebase.database();
+
+$(".submit").click(function() {
+name = localStorage.getItem("name");
+ct = document.getElementById("input").value;
+
+if (ct == "" || ct == null) {
+    $(".toast").html("Please write something related to the question");
+    showToast();
+} else {
+    database.ref( opened +'/'+levels).push({
+    name: name,
+    ct: ct,
+  },  function(error){
+            if (error) {
+            $(".toast").html("Comment failed to sent");
+            showToast();
+            }
+            $(".toast").html("Comment successfully sent");
+            showToast();
+        });
+}
+});
+
+function fetchAllData() {
+firebase.database().ref(opened +'/'+levels).once('value',function(snapshot) {
+    snapshot.forEach(
+        function(ChildSnapshot){
+            let name_of = ChildSnapshot.val().name;
+            let ct_of = ChildSnapshot.val().ct;
+            $(".comment-area").append(`
+            <div class="com-ct">
+            <div class="com-top">
+            <img src="res/img/profile.webp" class="profile-img">
+            <div class="c-name">${name_of}</div>
+            </div>
+            <div class="com-btm">${ct_of}</div>
+            <div class="com-break"></div>
+            </div>
+            `);
+        }
+    );
+    console.log("recieved");
+
+});
 }
 
-if (localStorage.getItem("lang") == "mal") {
-$(".card1").css({fontSize:'4.5vw'});
-$(".card-txt").css({fontSize:'3vw'});
-$(".what-if-txt").html("...അങ്ങനെയെങ്കിൽ");
-$(".but-txt").html("പക്ഷേ");
-$(".yes").html("അതെ");
-$(".no").html("അല്ല");
-$(".card-txt").empty();
-$(".card-txt").append(`
-<span id="answered"></span>% നിങ്ങളെപ്പോലെ ഉത്തരം നൽകി.<br/>
-<span id="unanswered"></span>% <span id="not-click"></span> എന്ന് ഉത്തരം നൽകി
-`);
+$(".show-comment").click(function() {
+fetchAllData();
+$(this).fadeOut();
+});
 
+function Outro() {
+setTimeout(() => {$(".fixed_bg").css({transform:'translateY(-100%)', opacity:'0'});}, 100);
+setTimeout(() => {$(".top").css({transform:'scale(1.2)', opacity:'0'});}, 200);
+setTimeout(() => {$(".btm").css({transform:'translateY(100%)', opacity:'0'});}, 100);
 }
 
-if (localStorage.getItem("lang") == "tam") {
-$(".card1").css({fontSize:'4.5vw'});
-$(".card-txt").css({fontSize:'3vw'});
-$(".what-if-txt").html("...அப்படிஎன்றால்");
-$(".but-txt").html("ஆனாலும்");
-$(".yes").html("ஆம்");
-$(".no").html("இல்லை");
-$(".card-txt").empty();
-$(".card-txt").append(`
-<span id="answered"></span>% உங்களைப் போல் பதிலளித்தார்.<br/>
-<span id="unanswered"></span>% <span id="not-click"></span> பதிலளித்தார்
-`);
-
+if (levels == 1) {
+$(".prev").css({visibility:'hidden'});
+}
+if (levels == localStorage.getItem(opened + "_all_levels")) {
+$(".next").css({visibility:'hidden'});
 }
 
-t_a = localStorage.getItem("t_a"); //Total Answered
-a_y = localStorage.getItem("a_y"); //Answered Yes
-a_n = localStorage.getItem("a_n"); //Answered No
-a_ma = localStorage.getItem("a_ma"); //Answered Majority
-a_mi = localStorage.getItem("a_mi"); //Answered Minority
-
-function allFunction() {
-
-function appendAll() {
-$(".what-if-ct").html(window["w" + opened]);
-$(".but-ct").html(window["b" + opened]);
+$(".next").click(function() {
+levels ++;
+if (levels == localStorage.getItem(opened + "_all_levels")) {
+$(this).css({visibility:'hidden'});
 }
+localStorage.setItem(opened + "_levels", levels);
 appendAll();
-
-Yes_eng = "Yes"; No_eng = "No";
-Yes_hin = "हाँ"; No_hin = "ना";
-Yes_tam = "ஆம்"; No_tam = "இல்லை";
-Yes_mal = "അതെ"; No_mal = "അല്ല";
-
-
-$(".yes").click(function() {
-click = window["Yes_" + lang]; notClick = window["No_" + lang];
-a_y++; localStorage.setItem("a_y", a_y);
-if (window["y" + opened] > window["n" + opened]) {
-a_ma++; localStorage.setItem("a_ma", a_ma);
-} else {
-a_mi++; localStorage.setItem("a_mi", a_mi);
-}
+$(".prev").css({visibility:'visible'});
 });
 
-$(".no").click(function() {
-click = window["No_" + lang]; notClick = window["Yes_" + lang];
-a_n++; localStorage.setItem("a_n", a_n);
-if (window["n" + opened] > window["y" + opened]) {
-a_ma++; localStorage.setItem("a_ma", a_ma);
-} else {
-a_mi++; localStorage.setItem("a_mi", a_mi);
+$(".prev").click(function() {
+levels --;
+if (levels == 1) {
+$(this).css({visibility:'hidden'});
 }
+localStorage.setItem(opened + "_levels", levels);
+appendAll();
+$(".next").css({visibility:'visible'});
 });
 
-$(".btn").click(function() {
-t_a++; localStorage.setItem("t_a", t_a);
-
-$("#card-ti").html(click);
-if (click == "Yes") {
-    $("#answered").html(window["y" + opened]);
-    $("#unanswered").html(window["n" + opened]);
-} else {
-    $("#answered").html(window["n" + opened]);
-    $("#unanswered").html(window["y" + opened]);
-}
-$("#not-click").html(notClick);
-
-if (opened <= localStorage.getItem(mode+"_total")) {
-    opened ++; localStorage.setItem(mode, opened);
-}
-
-$(".yes_no-bg").css({transform:'translateX(-100%)', opacity:'0'});
-$(".answer-bg").css({transform:'translateY(-100%)', opacity:'1'});
+$(".nav-img").click(function() {
+$(".comment-area").empty();
+$(".show-comment").fadeIn();
 });
 
-inter = 0;
 
-$(".card2").click(function() {
-if (opened <= localStorage.getItem(mode+"_total")) {
-    inter ++; if (inter == 7) {parent.location="https://inter"; inter = 0;}
-    appendAll();
-    $(".yes_no-bg").css({transform:'translateX(0%)', opacity:'1'});
-    $(".answer-bg").css({transform:'translateY(100%)', opacity:'0'});
-} else {
-    window.history.back();
-}
-});
-
-$(".mode_open").click(function() {
-Outro();
-setTimeout(() => {window.history.back();}, 600);
-});
 $(".back-img").click(function() {
 Outro();
 setTimeout(() => {window.history.back();}, 600);
 });
-
-
-
-}//allFunction Closed
 </script>
 </body>
 </html>
