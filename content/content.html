@@ -115,11 +115,13 @@ display: flex; justify-content: space-around; align-items: center;
 width: 75%; height: 4.5vh;
 padding: 0 3vw;
 font-family: feather;
+font-size: 4.5vw;
 background-color: transparent;
 border-radius: 10px;
 border: solid 1vw black;
-color: white;
-}
+color: black;
+outline: none;
+} .input:focus {outline: none;}
 .share-img {
 width: 4vh; height: 4vh;
 } .share-img:active {
@@ -159,6 +161,12 @@ position: absolute; top:37vh; left:0;
 text-align: center;
 } .show-comment:active {
 transition: none; opacity: .5;
+}
+.no-ct {
+position: absolute; top: 40%; left: 0;
+width: 100%; color: #6c6c6c;
+font-size: 4vw; text-align: center;
+display: none;
 }
 
 .nav-bg {
@@ -241,6 +249,7 @@ transition: all 400ms ease;
 <div class="comment-ct">
 <div class="comment-area"></div>
 <div class="show-comment">Show comments</div>
+<div class="no-ct">Either no comments<br/>Or Network disconnected</div>
 </div>
 
 <div class="nav-bg">
@@ -307,6 +316,7 @@ if (ct == "" || ct == null) {
     $(".toast").html("Please write something related to the question");
     showToast();
 } else {
+    $("#input").val("");
     database.ref( opened +'/'+levels).push({
     name: name,
     ct: ct,
@@ -339,7 +349,10 @@ firebase.database().ref(opened +'/'+levels).once('value',function(snapshot) {
             `);
         }
     );
-    console.log("recieved");
+console.log("recieved");
+if ($('.comment-area').is(':empty')){
+$(".no-ct").fadeIn();
+}
 
 });
 }
