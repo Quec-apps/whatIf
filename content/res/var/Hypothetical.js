@@ -25,7 +25,7 @@ tmp ++;
 window["c" + tmp] = "What if the Law of Attraction exists?";
 
 tmp ++;
-window["c" + tmp] = "What if the South won the Civil War?";
+window["c" + tmp] = "What if the South won the American Civil War?";
 
 tmp ++;
 window["c" + tmp] = "What if there was no electricity for a year anywhere in the world?";
