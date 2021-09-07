@@ -20,6 +20,10 @@ document.body.appendChild(myScript);
     font-family: feather;
     src: url(res/font/feather_bold.otf);
 }
+@font-face {
+    font-family: Roboto;
+    src: url(res/font/Roboto-Regular.ttf);
+}
 
 html, body {
 width: 100%; height: 100vh; overflow: hidden;
@@ -115,7 +119,7 @@ display: flex; justify-content: space-around; align-items: center;
 width: 75%; height: 4.5vh;
 padding: 0 3vw;
 font-family: feather;
-font-size: 4.5vw;
+font-size: 3vw;
 background-color: transparent;
 border-radius: 10px;
 border: solid 1vw black;
@@ -198,7 +202,7 @@ transition: none; opacity: .5;
 </div>
 
 <div class="add-comment-bg">
-<input type="text" class="input" id="input" placeholder="Write your comment here">
+<textarea type="text" class="input" id="input" placeholder="Write your comment here"></textarea>
 <img src="res/img/share.webp" class="share-img submit">
 </div>
 
@@ -228,7 +232,8 @@ padding-left: 1vw;
 .com-btm {
 width: 100%;
 padding: 1vw 2vw;
-padding-bottom: 3vw;
+padding-bottom: 3vw; font-size: 14px;
+font-family: Roboto;
 }
 .com-break {
 width: 70%; height: 1.5px; border-radius: 50%; background-color: #6c6c6c;
@@ -310,9 +315,9 @@ var database = firebase.database();
 
 $(".submit").click(function() {
 name = localStorage.getItem("name");
-ct = document.getElementById("input").value;
+ct = document.getElementById("input").value.replace(/(\r\n|\n|\r)/gm, "<br/>");
 
-if (ct == "" || ct == null) {
+if (document.getElementById("input").value.replace(/(\r\n|\n|\r)/gm, "").length == 0 || document.getElementById("input").value=="") {
     $(".toast").html("Please write something related to the question");
     showToast();
 } else {
@@ -329,6 +334,7 @@ if (ct == "" || ct == null) {
             showToast();
         });
 }
+
 });
 
 function fetchAllData() {
@@ -337,7 +343,7 @@ firebase.database().ref(opened +'/'+levels).once('value',function(snapshot) {
         function(ChildSnapshot){
             let name_of = ChildSnapshot.val().name;
             let ct_of = ChildSnapshot.val().ct;
-            $(".comment-area").append(`
+            $(".comment-area").prepend(`
             <div class="com-ct">
             <div class="com-top">
             <img src="res/img/profile.webp" class="profile-img">
